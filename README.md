@@ -45,7 +45,7 @@ mediumprop($prop,$value);
 largeprop($prop,$value);
 xlargeprop($prop,$value);
 xxlargeprop($prop,$value);
-`
+```
 
 ## Extended control
 I've been using 'rProp' mixin for a while and it cover most cases that I needed but I created another mixin called 'rpropX' for an extended control and play with longest screen size ranges.
