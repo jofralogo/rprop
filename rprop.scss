@@ -1,0 +1,102 @@
+// Media Query Breakpoints. Edit if you want to modify the breakpoints
+$small-breakpoint:  640px  !default;
+$medium-breakpoint: 1024px !default;
+$large-breakpoint:  1440px !default;
+$xlarge-breakpoint: 1920px !default;
+
+
+// Functions
+@function lower-bound($range) {
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range, 1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
+
+@function nullCheck ($value) {
+  @if $value == n or $value == _ {
+    @return null;
+  }
+  @else {
+    @return $value;
+  }
+}
+
+
+// Magic!
+$small-range:   (0, $small-breakpoint) !default;
+$medium-range:  ($small-breakpoint  + 1px, $medium-breakpoint) !default;
+$large-range:   ($medium-breakpoint + 1px, $large-breakpoint)  !default;
+$xlarge-range:  ($large-breakpoint  + 1px, $xlarge-breakpoint) !default;
+$xxlarge-range: ($xlarge-breakpoint + 1px, 99999999px) !default;
+
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$small-up: $screen !default;
+$small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})" !default;
+
+$medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})" !default;
+$medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width:#{upper-bound($medium-range)})" !default;
+
+$large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})" !default;
+$large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})" !default;
+
+$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})" !default;
+$xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})" !default;
+
+$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})" !default;
+$xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})" !default;
+
+$retina: (
+  "#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
+  "#{$screen} and (min--moz-device-pixel-ratio: 2)",
+  "#{$screen} and (-o-min-device-pixel-ratio: 2/1)",
+  "#{$screen} and (min-device-pixel-ratio: 2)",
+  "#{$screen} and (min-resolution: 192dpi)",
+  "#{$screen} and (min-resolution: 2dppx)"
+);
+
+@mixin rprop(
+	$prop,$phone-value:"", 
+	$tablet-value:"", 
+	$desktop-value:""
+	)
+	{
+	#{$prop}: $phone-value;
+	@media #{$medium-up} {#{$prop}: $tablet-value;}
+	@media #{$large-up} {#{$prop}: $desktop-value;}
+}
+
+@mixin rpropX($prop,$small-value,$medium-value,$large-value,$xlarge-value,$xxlarge-value){
+	@if nullCheck($small-value) != null { #{$prop}: $small-value; }
+	@if nullCheck($medium-value) != null { @media #{$medium-up} {#{$prop}: $medium-value;}}
+	@if nullCheck($large-value) != null { @media #{$large-up} {#{$prop}: $large-value;}}
+	@if nullCheck($xlarge-value) != null { @media #{$xlarge-up} {#{$prop}: $xlarge-value;}}
+	@if nullCheck($xxlarge-value) != null { @media #{$xxlarge-up} {#{$prop}: $xxlarge-value;}}
+}
+
+@mixin smallprop($prop,$value:""){
+	@media #{$small-only} {#{$prop}: $value;}
+}	
+@mixin mediumprop($prop,$value:""){
+	@media #{$medium-only} {#{$prop}: $value;}
+}	
+@mixin largeprop($prop,$value:""){
+	@media #{$large-only} {#{$prop}: $value;}
+}
+@mixin xlargeprop($prop,$value:""){
+	@media #{$xlarge-only} {#{$prop}: $value;}
+}
+@mixin xxlargeprop($prop,$value:""){
+	@media #{$xxlarge-only} {#{$prop}: $value;}
+}

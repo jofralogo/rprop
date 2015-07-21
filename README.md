@@ -1,2 +1,3 @@
-# rprop
-Responsive SCSS mixins
+# rProp
+## Responsive SCSS mixins
+Working on it...
