@@ -71,7 +71,7 @@ h2{
 
 Will compile:
 ```scss
-h1 { font-size: 22; }
+h2 { font-size: 22; }
 @media only screen and (min-width: 641px) { h1 { font-size: 32; } }
 @media only screen and (min-width: 1025px) { h1 { font-size: 42; } }  
 @media only screen and (min-width: 1441px) { h1 { font-size: 52; } }
