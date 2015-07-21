@@ -40,9 +40,17 @@ Do you want to define a property for a specific screen size only? No problem
 You can use one of these mixins:
 ```scss
 smallprop($prop,$value);
+```
+```scss
 mediumprop($prop,$value);
+```
+```scss
 largeprop($prop,$value);
+```
+```scss
 xlargeprop($prop,$value);
+```
+```scss
 xxlargeprop($prop,$value);
 ```
 
