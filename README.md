@@ -21,7 +21,7 @@
 
 ## Example
 
-Thi	s code:
+This code:
 ```scss
 h1{
   @include rprop(font-size, 22, 32, 42);
