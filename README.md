@@ -35,9 +35,9 @@ h1 {font-size: 22;}
 @media only screen and (min-width: 1025px) { h1 { font-size: 42; } }
 ```
 
-## Specify a value for a specific Media-Query
-Do you want to define a property for a specific screen size only? No problem
-You can use one of these mixins:
+## Specify a value for a specific *Media-Query*
+Do you want to define a property for a specific screen size only?
+No problem, You can use one of these mixins:
 ```scss
 @include smallprop($prop,$value);
 ```
@@ -55,7 +55,7 @@ You can use one of these mixins:
 ```
 
 ## Extended control
-I've been using `rProp` mixin for a while and it cover most cases that I needed but I created another mixin called `rpropX` for an extended control and play with longest screen size ranges.
+I've been using `rProp` mixin for a while and it cover most cases that I needed but I created another mixin called `rpropX` for a more extended control and play with longest screen size ranges.
 
 - `$xlarge-value` = Value for **at least** 1441px screen width.
 - `$xxlarge-value`  = Value for **at least** 1921px screen width.
