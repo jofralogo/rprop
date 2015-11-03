@@ -19,6 +19,8 @@
 - `$medium-value` = Value for **at least** 641px screen width.
 - `$large-value` = Value for **at least** 1025px screen width.
 
+Breakpoint values can be edited in *rprop.scss* file.
+
 ## Example
 
 This code:
