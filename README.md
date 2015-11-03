@@ -35,23 +35,23 @@ h1 {font-size: 22;}
 @media only screen and (min-width: 1025px) { h1 { font-size: 42; } }
 ```
 
-## Specify a value for an specific Media-Query
+## Specify a value for a specific Media-Query
 Do you want to define a property for a specific screen size only? No problem
 You can use one of these mixins:
 ```scss
-smallprop($prop,$value);
+@include smallprop($prop,$value);
 ```
 ```scss
-mediumprop($prop,$value);
+@include mediumprop($prop,$value);
 ```
 ```scss
-largeprop($prop,$value);
+@include largeprop($prop,$value);
 ```
 ```scss
-xlargeprop($prop,$value);
+@include xlargeprop($prop,$value);
 ```
 ```scss
-xxlargeprop($prop,$value);
+@include xxlargeprop($prop,$value);
 ```
 
 ## Extended control
