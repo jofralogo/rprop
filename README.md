@@ -26,20 +26,20 @@ Note: Breakpoints values can be edited in *rprop.scss* file.
 This code:
 ```scss
 h1{
-  @include rprop(font-size, 22, 32, 42);
+  @include rprop(font-size, 1rem, 1.5rem, 1.8rem);
 }
 ```
 
 Will compile:
 ```sass
-h1 {font-size: 22;}
-@media only screen and (min-width: 641px) { h1 { font-size: 32; } }
-@media only screen and (min-width: 1025px) { h1 { font-size: 42; } }
+h1 {font-size: 1rem;}
+@media only screen and (min-width: 641px) { h1 { font-size: 1.5rem; } }
+@media only screen and (min-width: 1025px) { h1 { font-size: 1.8rem; } }
 ```
 
 ## Specify a value for a specific *Media-Query*
 Do you want to define a property for a specific screen size only?
-No problem, You can use one of these mixins:
+No problem, you can use one of these mixins:
 ```scss
 @include smallprop($prop,$value);
 ```
@@ -62,20 +62,20 @@ I've been using `rProp` mixin for a while and it cover most cases that I needed 
 - `$xlarge-value` = Value for **at least** 1441px screen width.
 - `$xxlarge-value`  = Value for **at least** 1921px screen width.
 
-**NOTE:** If you don't want to set a value for a specific Media-Query screen range you can set it to `null`, `_` or `n` (it must have a value, don't leave it empty). In that case, that screen range will inherit the property of its closest smaller range.
+**NOTE:** If you don't want to set a value for a specific Media-Query screen range you can set it to `null`, `_` or `n` (don't leave it empty). In that case, that screen range will inherit the property of its closest smaller breakpoint.
 
 ## Example for extended control
 ```scss
 h2{
-  @include rpropX(font-size, 22, 32, 42, 52, 62);
+  @include rpropX(font-size, 22px, 32px, 42px, 52px, 62px);
 }
 ```
 
 Will compile:
 ```scss
-h2 { font-size: 22; }
-@media only screen and (min-width: 641px) { h1 { font-size: 32; } }
-@media only screen and (min-width: 1025px) { h1 { font-size: 42; } }  
-@media only screen and (min-width: 1441px) { h1 { font-size: 52; } }
-@media only screen and (min-width: 1921px) { h1 { font-size: 62; } }
+h2 { font-size: 22px; }
+@media only screen and (min-width: 641px) { h1 { font-size: 32px; } }
+@media only screen and (min-width: 1025px) { h1 { font-size: 42px; } }  
+@media only screen and (min-width: 1441px) { h1 { font-size: 52px; } }
+@media only screen and (min-width: 1921px) { h1 { font-size: 62px; } }
 ```
