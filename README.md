@@ -30,11 +30,21 @@ h1{
 }
 ```
 
-Will compile:
-```sass
-h1 {font-size: 1rem;}
-@media only screen and (min-width: 641px) { h1 { font-size: 1.5rem; } }
-@media only screen and (min-width: 1025px) { h1 { font-size: 1.8rem; } }
+Will be transformed into:
+```css
+h1 {
+	font-size: 1rem;
+}
+@media only screen and (min-width: 641px) { 
+	h1 { 
+		font-size: 1.5rem; 
+	} 
+}
+@media only screen and (min-width: 1025px) { 
+	h1 { 
+		font-size: 1.8rem; 
+	} 
+}
 ```
 
 ## Specify a value for a specific *Media-Query*
@@ -67,15 +77,33 @@ I've been using `rProp` mixin for a while and it cover most cases that I needed 
 ## Example for extended control
 ```scss
 h2{
-  @include rpropX(font-size, 22px, 32px, 42px, 52px, 62px);
+  @include rpropX(font-size, 24px, 32px, 44px, 56px, 64px);
 }
 ```
 
-Will compile:
-```scss
-h2 { font-size: 22px; }
-@media only screen and (min-width: 641px) { h1 { font-size: 32px; } }
-@media only screen and (min-width: 1025px) { h1 { font-size: 42px; } }  
-@media only screen and (min-width: 1441px) { h1 { font-size: 52px; } }
-@media only screen and (min-width: 1921px) { h1 { font-size: 62px; } }
+Will be transformed into:
+```css
+h2 { 
+	font-size: 24px; 
+}
+@media only screen and (min-width: 641px){ 
+	h1 { 
+		font-size: 32px; 
+	} 
+}
+@media only screen and (min-width: 1025px) { 
+	h1 { 
+		font-size: 44px; 
+	} 
+}  
+@media only screen and (min-width: 1441px) { 
+	h1 { 
+		font-size: 56px; 
+	} 
+}
+@media only screen and (min-width: 1921px) { 
+	h1 { 
+		font-size: 64px; 
+	} 
+}
 ```
