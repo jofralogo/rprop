@@ -7,10 +7,10 @@
 2. Include it whenever you need: 
 ```scss
 @include rprop(
-	$prop,
-	$small-value, 
-	$medium-value, 
-	$large-value);
+  $prop,
+  $small-value, 
+  $medium-value, 
+  $large-value);
 ```
 
 ## Mixin atributes and media-queries
@@ -32,18 +32,20 @@ h1{
 
 Will be transformed into:
 ```css
-h1 {
-	font-size: 1rem;
-}
+  h1 {
+    font-size: 1rem;
+  }
+
 @media only screen and (min-width: 641px) { 
-	h1 { 
-		font-size: 1.5rem; 
-	} 
+  h1 { 
+    font-size: 1.5rem; 
+  } 
 }
+
 @media only screen and (min-width: 1025px) { 
-	h1 { 
-		font-size: 1.8rem; 
-	} 
+  h1 { 
+    font-size: 1.8rem; 
+  } 
 }
 ```
 
@@ -84,26 +86,30 @@ h2{
 Will be transformed into:
 ```css
 h2 { 
-	font-size: 24px; 
+  font-size: 24px; 
 }
+
 @media only screen and (min-width: 641px){ 
-	h1 { 
-		font-size: 32px; 
-	} 
+  h1 { 
+    font-size: 32px; 
+  } 
 }
+
 @media only screen and (min-width: 1025px) { 
-	h1 { 
-		font-size: 44px; 
-	} 
+  h1 { 
+    font-size: 44px; 
+  } 
 }  
+
 @media only screen and (min-width: 1441px) { 
-	h1 { 
-		font-size: 56px; 
-	} 
+  h1 { 
+    font-size: 56px; 
+  } 
 }
+
 @media only screen and (min-width: 1921px) { 
-	h1 { 
-		font-size: 64px; 
-	} 
+  h1 { 
+    font-size: 64px; 
+  } 
 }
 ```
